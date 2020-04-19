@@ -1,5 +1,5 @@
 import nltk
-from nltk.corpus import wordnet
+from nltk.corpus import wordnet, brown
 from nltk.text import ContextIndex
 
 words = [word.lower() for word in brown.words()]

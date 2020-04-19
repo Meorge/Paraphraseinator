@@ -3,7 +3,6 @@ import random
 import mcw
 import string
 
-
 punctuation = ['.', ',', '!', '?', ')', '(', ')', ':', ';']
 
 class Paraphraseinator(object):

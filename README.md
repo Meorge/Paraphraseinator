@@ -15,11 +15,29 @@ Run through the Paraphraseinator with an Originality value of 90%, we get this g
 > 
 > And so, my swain Americans: demand not what your rural can do for you — quiz what you can do for your rustic.
 
+## Requriements
+### Python modules
+This library uses *[Requests](https://requests.readthedocs.io/en/master/)* for making API requests. In addition, the example scripts use the [`dotenv` module](https://pypi.org/project/python-dotenv/) for storing the API key.
 
-## Required API key
+### API key
 In order to use the Paraphraseinator, you'll need to get an API key for the [Collegiate Thesaurus API](https://dictionaryapi.com/products/api-collegiate-thesaurus) from the [Merriam-Webster Developer Center](https://dictionaryapi.com). It's quick, it's easy, and it's free.
 
+For the example scripts, you'll need a `.env` file with the following format:
+```
+THES_KEY=my-api-key
+```
+
 **Note**: Merriam-Webster's APIs only allow 1000 calls per day for free. However, the Paraphraseinator saves the information on every word it calls, which means that it will gradually do fewer and fewer calls as more text is run through it. The word information is saved in `cache.json`.
+
+## Command-line tool
+I've included a command-line script to easily paraphraseinate text files.
+```
+python3 ppi_file.py textfile [output [originality]]
+```
+
+* `textfile` - Path to text file to paraphraseinate
+* `output` - File to output the paraphraseinated text to. If not specified, or written as "None" (without quotation marks), the paraphraseinated text will instead be printed to the console.
+* `originality` - A value between 0 and 1 that dictates the probability of any given word being paraphraseinated. Defaults to 0.5 if not specified.
 
 ## Example script
 ```python
