@@ -7,18 +7,18 @@ import string
 punctuation = ['.', ',', '!', '?', ')', '(', ')', ':', ';']
 
 class Paraphraseinator(object):
-    def __init__(self, key, print_extras=False):
+    def __init__(self, key):
         self.key = key
-        self.extras = print_extras
+        self.extras = False
         self.thes = Thesaurus(self.key, self.extras)
 
-    def paraphraseinate(self, text, fuckening_level=0.5):
+    def paraphraseinate(self, text, originality=0.5):
         list_of_words = text.split()
         new_list_of_words = []
 
         for w in list_of_words:
             word_without_punct = w.translate(str.maketrans('', '', string.punctuation))
-            if word_without_punct.lower() in mcw.most_common_words or random.random() > fuckening_level:
+            if word_without_punct.lower() in mcw.most_common_words or random.random() > originality:
                 new_list_of_words.append(w)
                 continue
 
